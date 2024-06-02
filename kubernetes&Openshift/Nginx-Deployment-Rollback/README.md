@@ -37,7 +37,7 @@ This guide outlines steps to deploy NGINX with 3 replicas, create a service to e
 
 2. **Create a Service to Expose NGINX Deployment:**
    - Create a service to expose NGINX deployment using the yaml command:
-      ```bash
+      ```yaml
       apiVersion: v1
       kind: Service
       metadata:
