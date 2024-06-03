@@ -5,12 +5,12 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: nginx
+      app: nginx-custom
   policyTypes:
   - Ingress
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          app: nginx
+          app: nginx-custom
 
