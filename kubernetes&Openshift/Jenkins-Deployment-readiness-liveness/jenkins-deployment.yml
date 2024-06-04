@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-deployment
+  name: jenkins
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: jenkins
+  replicas: 1
   template:
     metadata:
       labels:
@@ -17,7 +17,6 @@ spec:
         image: jenkins/jenkins
         ports:
         - containerPort: 8080
-        - containerPort: 50000
         readinessProbe:
           httpGet:
             path: /
@@ -28,5 +27,9 @@ spec:
           httpGet:
             path: /
             port: 8080
-          initialDelaySeconds: 60
+          initialDelaySeconds: 180
           periodSeconds: 10
+      - name: init-container
+        image: busybox
+        command: ['sh', '-c', 'sleep 10']
+
