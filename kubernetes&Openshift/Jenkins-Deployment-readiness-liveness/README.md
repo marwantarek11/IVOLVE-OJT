@@ -15,12 +15,12 @@ Create a Kubernetes deployment for Jenkins with an init container that sleeps fo
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-deployment
+  name: jenkins
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: jenkins
+  replicas: 1
   template:
     metadata:
       labels:
@@ -31,7 +31,6 @@ spec:
         image: jenkins/jenkins
         ports:
         - containerPort: 8080
-        - containerPort: 50000
         readinessProbe:
           httpGet:
             path: /
@@ -42,8 +41,11 @@ spec:
           httpGet:
             path: /
             port: 8080
-          initialDelaySeconds: 60
+          initialDelaySeconds: 180
           periodSeconds: 10
+      - name: init-container
+        image: busybox
+        command: ['sh', '-c', 'sleep 10']
 
 ```
 
@@ -62,16 +64,14 @@ kind: Service
 metadata:
   name: jenkins-service
 spec:
-  type: NodePort
   selector:
     app: jenkins
   ports:
     - protocol: TCP
       port: 8080
-      nodePort: 30000
-    - protocol: TCP
-      port: 50000
-      nodePort: 30001
+      targetPort: 8080
+  type: NodePort
+
 ```
 
 Apply the service YAML:
@@ -91,11 +91,9 @@ kubectl apply -f jenkins-service.yaml
    ```
 
 
-3. Access Jenkins using the NodePort service. Open a web browser and go to: `http://<node-ip>:30000`
+3. Access Jenkins using the NodePort service. Open a web browser and go to: `http://localhost:8080`
 
-## Conclusion
+![Screenshot from 2024-06-04 14-41-20](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/4270e8b8-eba1-4f8f-891f-363f3f2b194e)
+
+
 You've successfully deployed Jenkins on Kubernetes with an init container, readiness, and liveness probes, and exposed it using a NodePort service.
-
----
-
-Feel free to customize the steps according to your environment or requirements. Let me know if you need further assistance!
