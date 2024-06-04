@@ -15,7 +15,7 @@ spec:
       tolerations:
       - key: "color"
         operator: "Equal"
-        value: "blue"
+        value: "red"
         effect: "NoSchedule"
       containers:
       - name: nginx
