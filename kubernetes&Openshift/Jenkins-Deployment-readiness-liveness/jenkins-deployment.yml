@@ -12,19 +12,21 @@ spec:
       labels:
         app: jenkins
     spec:
-      initContainers:
-      - name: init-container
-        image: busybox
-        command: ['sh', '-c', 'sleep 10']
       containers:
       - name: jenkins
-        image: your-jenkins-image
+        image: jenkins/jenkins
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
         readinessProbe:
           httpGet:
-            path: /login
+            path: /
             port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
         livenessProbe:
           httpGet:
-            path: /login
+            path: /
             port: 8080
-
+          initialDelaySeconds: 60
+          periodSeconds: 10
