@@ -73,7 +73,7 @@ spec:
 
  ## Step 4: Create a Persistent Volume Claim (PVC)
   Create a PVC YAML file (pvc.yaml):
-    ```yaml
+  ```yaml
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
@@ -84,13 +84,16 @@ spec:
       resources:
         requests:
           storage: 1Gi
-    ```
+  ```
+      
   Apply the PVC:
   ```bash
   kubectl apply -f pvc.yaml
   ```
+
  ## Step 5: Modify the Deployment to Attach the PVC
-    Update the deployment YAML file (nginx-deployment.yaml):
+  Update the deployment YAML file (nginx-deployment.yaml):
+    
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -121,6 +124,7 @@ spec:
 ```
     
   Apply the updated deployment:
+  
   ```bash
   kubectl apply -f deployment.yaml
   ```
