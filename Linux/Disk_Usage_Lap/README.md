@@ -22,9 +22,8 @@ Configuration settings for ssmtp.conf :
 
 1- sudo vim /etc/ssmtp/ssmtp.conf
 
-![22](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/1a1b51c1-add7-4e76-bb53-94d0d018266c)
+![2](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/6fcf504b-baad-4d52-9f2c-c0f6e9ab1781)
 
 Result:
 
-![Screenshot 2024-05-28 011946](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/586748d5-3aee-4ff3-bb7f-682168d3fe30)
-
+![Screenshot 2024-05-28 011946](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/d991f3fd-1194-4a5f-9e3a-b6edb421948b)
