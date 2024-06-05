@@ -68,6 +68,9 @@ In this lab, we'll use Terraform to provision a Virtual Private Cloud (VPC), cre
    
 
 ### 5. *Photos & Outputs:*
+1 -  ![vpc](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/65ceca7c-85c2-4789-8fb0-fc1b6c5e5060)
+2 -  ![ec2](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/7e803260-8943-41ef-80cc-f0c764d5b541)
+3 -  ![rds](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/d0c0886a-3af8-4bbf-a4a0-9bbe6bc03c65)
 
 
 By following these steps, you'll have a modularized Terraform configuration that can be easily reused and maintained across different projects or environments.
