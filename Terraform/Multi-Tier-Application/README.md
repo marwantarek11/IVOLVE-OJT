@@ -65,13 +65,15 @@ Apply the Terraform plan to create the resources:
 terraform apply
 ```
 After the deployment, you can check the output values for the created resources:
+
 ```bash
 terraform output
 ```
 ### Results
-1- ![1](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/123f29fa-02fb-4290-bdee-f907229a5683)
-2- ![2](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/f0bb814d-e0d8-41b0-ac56-e042c05dd865)
-3- ![3](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/e843ea7c-4c3b-451c-8699-845eff28d387)
+1- ![1]![WhatsApp Image 2024-06-05 at 4 06 34 AM](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/7863db05-1cde-4f78-8486-e0755d4afa30)
+2- ![2]![WhatsApp Image 2024-06-05 at 4 07 28 AM](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/3656b78c-53f2-4cc1-be06-357dbf832c16)
+3- ![3]![WhatsApp Image 2024-06-05 at 4 08 04 AM](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/e1b94747-73a8-4bb5-8d40-955ec2f9667a)
+
 
 
 
