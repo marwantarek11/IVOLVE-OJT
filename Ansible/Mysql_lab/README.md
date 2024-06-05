@@ -18,18 +18,69 @@ facilitating efficient management of database configurations in server environme
 - **Create MySQL User**: Creates a MySQL user 'ivolve' with a password from Ansible Vault and grants all privileges on all databases.
 - **Grant User Permissions**: Grants the user 'ivolve' permission to create tables in the 'ivolve' database.
 
-## Photos for results
-![1](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/d224b2cc-509c-4cf0-a8b7-db6c1cd2da3e)
-![2](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/f4d32721-5521-478c-8472-2a331176e664)
-![3](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/3c037f55-1dd8-4189-8b40-d72cc1cce3e5)
-![4](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/b9af0e08-482c-4ab3-907a-1c6311466098)
-![5](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/74cd9277-5247-426b-8e61-ebb333fccd40)
-![6](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/00cd8829-e868-460f-8fd1-68dd70ffaed6)
+## Output & results
+1- 
+```bash
+marwan@marwan-virtual-machine:~/IVOLVE_OJT/IVOLVE_Training/Ansible/Mysql_lab$ ansible-playbook -i inventory playbook_mysql.yml --ask-vault-pass
+Vault password: 
 
+PLAY [Install MySQL, create database, user, and grant permissions] *************
 
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.129.130]
 
+TASK [Install MySQL] ***********************************************************
+ok: [192.168.129.130]
 
+TASK [Ensure MySQL service is enabled and started] *****************************
+ok: [192.168.129.130]
 
+TASK [Create database named 'ivolve'] ******************************************
+ok: [192.168.129.130]
 
+TASK [Create MySQL user 'ivolve' with password from Ansible Vault] *************
+changed: [192.168.129.130]
 
+TASK [Grant user 'ivolve' permission to create tables in 'ivolve' database] ****
+changed: [192.168.129.130]
 
+PLAY RECAP *********************************************************************
+192.168.129.130            : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+
+2- verfiy ivolve database
+```bash
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ivolve             |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql>
+```
+3- create table named "ivolve-table"
+```bash
+mysql> CREATE TABLE ivolve_table (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     username VARCHAR(50) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_ivolve |
++------------------+
+| data             |
+| ivolve_table     |
+| users            |
++------------------+
+3 rows in set (0.01 sec)
+
+mysql>
+```
