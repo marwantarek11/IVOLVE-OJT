@@ -17,7 +17,27 @@ facilitating efficient management of web server configurations in server environ
 
 
 ## Photos for results
-![1](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/5622a01c-bad3-45bd-877d-3126cb33ed15)
-![2](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/3b0a8a51-e930-41a4-a4bf-57db62c4c42b)
-![3](https://github.com/marwantarek11/IVOLVE_Training/assets/167176241/0a465988-73d9-4add-b2bf-8650153b795c)
+1- Apply playbook
+```bash
+$ ansible-playbook -i inventory playbook_webserver.yml 
 
+PLAY [Configure Apache Web Server] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.129.130]
+
+TASK [Install Apache HTTP Server] **********************************************
+ok: [192.168.129.130]
+
+TASK [Ensure Apache service is started and enabled] ****************************
+ok: [192.168.129.130]
+
+TASK [Deploy sample website] ***************************************************
+ok: [192.168.129.130]
+
+PLAY RECAP *********************************************************************
+192.168.129.130            : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+```
+2- my localhost web page
+![WhatsApp Image 2024-06-05 at 3 53 28 AM](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/7641b4ed-b5c4-4194-8112-952a2ba1e197)
