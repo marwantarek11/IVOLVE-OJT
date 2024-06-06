@@ -1,9 +1,0 @@
----
-- name: Playbook to install Jenkins, Docker, and OpenShift CLI 'oc'
-  hosts: web
-  become: yes
-  roles:
-    - Docker
-    - Jenkins
-    - Openshift 
-
