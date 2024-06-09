@@ -1,5 +1,5 @@
 # LAB_20
-create private subnet and launch EC2, configure security groups, connect to the instance using bastiøn host.
+create private subnet and launch EC2, configure security groups, connect to the instance using bastion host.
 # AWS Infrastructure Setup Guide
 
 ## 1. VPC Creation
