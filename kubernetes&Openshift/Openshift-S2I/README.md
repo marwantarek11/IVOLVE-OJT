@@ -56,28 +56,29 @@ oc get route
 
 
 #### Step 1
-![Step 1]![1](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/2f1d6e12-67a2-427d-952f-3f7f5ca43931)
+![Step 1](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/2f1d6e12-67a2-427d-952f-3f7f5ca43931)
 
 
 #### Step 2
-![Step 2]![2](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/1f98c14c-901c-4db0-a1e5-9c098c6007aa)
+![Step 2](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/1f98c14c-901c-4db0-a1e5-9c098c6007aa)
 
 
 #### Step 3
-![Step 3]![3](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/be9e1a9d-5a82-4b64-b5f8-7a8b29c9d770)
+![Step 3](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/be9e1a9d-5a82-4b64-b5f8-7a8b29c9d770)
 
 
 #### Step 4
-![Step 4]![4](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/2a512a63-ae6e-4537-b7aa-797947b8d495)
+![Step 4](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/2a512a63-ae6e-4537-b7aa-797947b8d495)
 
 
 #### Step 5
-![Step 5]![5](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/395e6977-cf90-4542-91fb-459fc4037e13)
+![Step 5](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/395e6977-cf90-4542-91fb-459fc4037e13)
 
 
 #### Step 6
-![Step 6]![6](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/326b1050-3094-40e7-a6e9-ebdc4425d5d0)
+![Step 6](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/326b1050-3094-40e7-a6e9-ebdc4425d5d0)
 
 
 #### Step 7
-![Step 7]![7](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/5a58d102-59fc-40ff-9bdf-b57c17b6aca6)
+![Step 7](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/36773356-5b28-43d3-aad0-2bc272bdc1d5)
+
