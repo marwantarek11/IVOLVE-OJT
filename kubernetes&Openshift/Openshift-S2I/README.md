@@ -2,6 +2,24 @@
 
 **Objective:** Use Source-to-Image (S2I) to build container images directly from application source code. Deploy an application using the S2I workflow.
 
+   Certainly! This is a Comparison of `Build` and `BuildConfig` in OpenShift.
+   
+   | Feature                     | Build                                  | BuildConfig                                |
+   |-----------------------------|----------------------------------------|--------------------------------------------|
+   | **Purpose**                 | Represents an instance of a build process. | Template for defining how builds should be run. |
+   | **Lifecycle**               | Ephemeral (short-lived).               | Persistent (long-lived).                   |
+   | **Trigger**                 | Manually or automatically via BuildConfig. | Automatically (source changes, image changes, manual). |
+   | **Scope**                   | Single build execution.                | Can trigger multiple builds over time.     |
+   | **Management**              | Managed individually.                  | Manages build process definitions and triggers. |
+   | **Commands**                | `oc get builds`                        | `oc new-build <source_repository_url> --name=<build_config_name>` |
+   |                             | `oc describe build <build_name>`       | `oc get bc`                                |
+   |                             | `oc start-build <build_config_name>`   | `oc describe bc <build_config_name>`       |
+   |                             |                                        | `oc edit bc <build_config_name>`           |
+   |                             |                                        | `oc delete bc <build_config_name>`         |
+   | **Output**                  | Container image.                       | Defines output image details.              |
+   | **Flexibility**             | Limited to single execution specifics. | Highly configurable and reusable.          |
+
+
 1. **Clone the HTML application repository from GitHub:**  
    [https://github.com/IbrahimmAdel/html.git](https://github.com/IbrahimmAdel/html.git)
 
