@@ -34,33 +34,33 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes.
      ```
    - Install the ArgoCD Operator:
      ```bash
-     helm install argocd-operator argo/argo-cd
+     kubectl create ns argocd
+     helm install argocd-operator argo/argo-cd -n argocd
      ```
+      ![1](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/d23c4bcc-f3b0-4544-a540-d33ee631a707)
 
-2. **Configure ArgoCD:**
-   - Apply the necessary Custom Resource Definitions (CRDs) and other Kubernetes manifests:
      ```bash
-     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+     kubectl get all -n argocd
      ```
-   - Create and configure ArgoCD instance:
-     ```yaml
-     apiVersion: argoproj.io/v1alpha1
-     kind: ArgoCD
-     metadata:
-       name: argocd
-       namespace: argocd
-     spec:
-       server:
-         insecure: true
-     ```
-     Apply this configuration:
-     ```bash
-     kubectl apply -f argocd-instance.yaml
-     ```
+     ![2](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/54f5b194-2c4f-4dd7-929d-7eb36c91363d)
+     
+      Expose argocd service by run port forward to argocd service
+        ```bash
+        kubectl port-forward service/argocd-operator-server -n argocd 8080:443
+        ```
+      ![3](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/3a61751a-5849-4b28-b135-7e7a91dd2afb)
+   
+      Login by admin on ArgoCD console and get password by the following command
+      ```bash
+      kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
+      ```
+      ![4](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/429834e1-99ed-4c18-8937-2c492a1ad65e)
+      ![5](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/7c25e458-74ac-430f-9dbc-b8ec5f6f4270)
 
-### 2. Deploying the ELK Stack using an Operator
 
-The ELK stack (Elasticsearch, Logstash, Kibana) is used for searching, analyzing, and visualizing log data in real time.
+### 2. Deploying the Elasticsearch using an Operator
+
+The ELK stack (Elasticsearch) is used for searching, analyzing, and visualizing log data in real time.
 
 1. **Install the Elastic Operator:**
    - Add the Elastic Helm repository:
@@ -73,55 +73,33 @@ The ELK stack (Elasticsearch, Logstash, Kibana) is used for searching, analyzing
      ```
    - Install the Elastic Operator:
      ```bash
-     helm install elastic-operator elastic/eck-operator
+     kubectl create ns elastic-system
+     helm install elastic-operator elastic/eck-operator -n elastic-system
      ```
+     ![7](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/a2888948-d90b-4ee3-95e0-8cd5e25d4f06)
 
-2. **Deploy Elasticsearch, Logstash, and Kibana:**
+   
+2. **Deploy Elasticsearch**
    - Create and apply Elasticsearch instance:
      ```yaml
      apiVersion: elasticsearch.k8s.elastic.co/v1
-     kind: Elasticsearch
-     metadata:
-       name: quickstart
-     spec:
-       version: 7.10.0
-       nodeSets:
-       - name: default
-         count: 1
-         config:
-           node.store.allow_mmap: false
+      kind: Elasticsearch
+      metadata:
+        name: quickstart
+        namespace: elastic-system
+      spec:
+        version: 7.10.0
+        nodeSets:
+        - name: default
+          count: 1
+          config:
+            node.store.allow_mmap: false
      ```
      ```bash
-     kubectl apply -f elasticsearch-instance.yaml
+     kubectl apply -f ELK.yml
      ```
-   - Create and apply Kibana instance:
-     ```yaml
-     apiVersion: kibana.k8s.elastic.co/v1
-     kind: Kibana
-     metadata:
-       name: quickstart
-     spec:
-       version: 7.10.0
-       count: 1
-       elasticsearchRef:
-         name: quickstart
-     ```
-     ```bash
-     kubectl apply -f kibana-instance.yaml
-     ```
-   - Deploy Logstash similarly by defining a `Logstash` resource.
-
-### 3. Exploring Operator Capabilities
-
-Operators are powerful tools for application lifecycle management. They offer:
-
-- **Automated Updates and Upgrades:** Simplify the process of updating and upgrading applications.
-- **Health Monitoring and Self-Healing:** Automatically monitor the health of application components and perform corrective actions.
-- **Backup and Restore:** Manage data backups and restore processes.
-- **Custom Configurations:** Enable fine-tuned configurations through custom resources.
-
-Operators encapsulate complex operational logic and automate repetitive tasks, enhancing efficiency and reliability in managing Kubernetes-native applications.
-
-## Conclusion
-
-By deploying ArgoCD and the ELK stack using Operators, we have demonstrated the practical benefits of Kubernetes Operators in application management. Operators simplify deployment, scaling, and maintenance tasks, making them an essential tool in modern DevOps practices.
+   **Verify Elasticsearch Deployment**
+      ```bash
+      kubectl get all -n elastic-system
+      ```
+      ![8](https://github.com/marwantarek11/Ivolve-OJT/assets/167176241/bf9257f5-ddfb-4459-9ffe-9331386d75ec)
